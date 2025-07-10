@@ -126,7 +126,7 @@ module.exports = (config) => {
         // Too many and the extra size from the boostrapping causes bloat
         // Too few & untouched modules will get invalidated between versions
         // e.g. 100_000 -> 3.5MB bundle. 1_000 -> 4.05MB. That's a 550KB gzipped savings!
-        minChunkSize: 50_000
+        minChunkSize: 100_000
       }),
       isStats && new BundleAnalyzerPlugin({generateStatsFile: true})
     ].filter(Boolean),
