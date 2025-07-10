@@ -80,7 +80,7 @@ jobs:
 
       - name: Build for release
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: "--max_old_space_size=8096"
         run: pnpm build --no-deps
 
       - name: Set up Docker Buildx

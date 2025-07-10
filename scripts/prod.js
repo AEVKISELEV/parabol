@@ -3,6 +3,10 @@ const cp = require('child_process')
 const {Logger} = require('../packages/server/utils/Logger')
 
 const runChild = (cmd) => {
+  if (cmd.includes('webpack')) {
+    cmd = cmd.replace('pnpm webpack', 'NODE_OPTIONS="--max-old-space-size=4096" pnpm webpack');
+  }
+
   return new Promise((resolve, reject) => {
     const build = cp.exec(cmd).on('exit', (code, signal) => {
       if (signal) {
