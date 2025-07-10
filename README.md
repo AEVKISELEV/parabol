@@ -10,6 +10,7 @@ We endeavor to be a
 transparent organization and publish
 our company's [history and SaaS metrics](https://www.parabol.co/blog/tag/friday-ship).
 
+
 ![Dashboard](./docs/images/d2.gif)
 ![Discuss](./docs/images/d1.gif)
 
