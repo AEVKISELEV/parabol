@@ -4,7 +4,7 @@ const {Logger} = require('../packages/server/utils/Logger')
 
 const runChild = (cmd) => {
   if (cmd.includes('webpack')) {
-    cmd = cmd.replace('pnpm webpack', 'NODE_OPTIONS="--max-old-space-size=4096" pnpm webpack');
+    cmd = cmd.replace('pnpm webpack', 'NODE_OPTIONS="--max-old-space-size=8400" pnpm webpack');
   }
 
   return new Promise((resolve, reject) => {
