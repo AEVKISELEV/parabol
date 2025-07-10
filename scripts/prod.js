@@ -30,14 +30,16 @@ const prod = async (isDeploy, noDeps) => {
 
   Logger.log('starting webpack build')
   try {
-    await Promise.all([
-      runChild(
-        `pnpm webpack --config ./scripts/webpack/prod.servers.config.js --env=noDeps=${noDeps}`
-      ),
-      runChild(
-        `pnpm webpack --config ./scripts/webpack/prod.client.config.js --env=minimize=${isDeploy}`
-      )
-    ])
+    Logger.log('building server')
+    await runChild(
+      `pnpm webpack --config ./scripts/webpack/prod.servers.config.js --env=noDeps=${noDeps}`
+    )
+
+    Logger.log('building client')
+    await runChild(
+      `pnpm webpack --config ./scripts/webpack/prod.client.config.js --env=minimize=${isDeploy}`
+    )
+
     Logger.log('building mattermost-plugin')
     await runChild(
       `pnpm webpack --config ./packages/mattermost-plugin/prod.webpack.config.js --env=minimize=${isDeploy}`
